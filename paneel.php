@@ -10,40 +10,48 @@
 </head>
 <body>
 	<div class="container">
-		<?php require('header.php'); ?>
+		<?php 
+			session_start();
+		?>
 		<main>
 			<?php 
-			if(isset($_SESSION['active']) && $_SESSION['active'] === 1){	
+			if(isset($_SESSION['active']) && $_SESSION['active'] == 1){	
 				?>
 				<h1>Producten inzetten</h1>
-				<form action="verwerk.php" method="post" enctype="multipart/form-data">
-					<p>
-						<label for="naam">Naam</label>
-						<input type="text" name="naam" placeholder="naam">
-					</p>
-					<p>
-						<label for="omschrijving">Omschrijving</label>
-						<textarea name="omschrijving" placeholder="Typ hier uw omschrijving"></textarea>
-					</p>
-					<p>
-						<label for="prijs">Prijs</label>
-						<input type="number" name="prijs" placeholder="10.00" step="0.01">
-					</p>
-					<p>
-						<label for="special">Special</label>
-						<input type="number" name="special" placeholder="1 of 0">
-					</p>
-					<p>
-						<label for="promotie">Promotie op dagen</label>
-						<input type="date" name="promotie">
-					</p>
-					<p>
-						<label for="img">Illustratie</label>
-						<input type="file" name="img">
-					</p>
-					<input type="submit" name="submit" value="Verzend">
-				</form>		
-				<a href="uitloggen.php?stat=1">Uitloggen</a>
+				<div class="form_holder">
+					<form action="verwerk.php" method="post" enctype="multipart/form-data">
+						<p class="inp_holder">
+							<label class="label_inlog" for="naam">Naam</label>
+							<input class="inlog_inp" type="text" name="naam" placeholder="naam">
+						</p>
+						<p class="inp_holder">
+							<label class="label_inlog label_text" for="omschrijving">Omschrijving</label>
+							<textarea class="text_inp" name="omschrijving" placeholder="Typ hier uw omschrijving"></textarea>
+						</p>
+						<p class="inp_holder">
+							<label class="label_inlog" for="prijs">Prijs</label>
+							<input class="inlog_inp" type="number" name="prijs" placeholder="10.00" step="0.01">
+						</p>
+						<p class="inp_holder">
+							<label class="label_inlog" for="special">Special</label>
+							<input class="inlog_inp" type="number" name="special" placeholder="1 of 0">
+						</p>
+						<p class="inp_holder">
+							<label class="label_inlog" for="promotie">Promotie op dagen</label>
+							<input class="inlog_inp" type="date" name="promotie">
+						</p>
+						<p class="inp_holder">
+							<label class="label_inlog" for="img">Illustratie</label>
+							<input class="inlog_inp" type="file" name="img">
+						</p>
+						<div class="submit_holder">
+							<input type="submit" name="submit" value="Verzend">
+						</div>
+					</form>
+					<div class="form_link">	
+						<a href="uitloggen.php?stat=1">Uitloggen</a>
+					</div>
+				</div>
 			</main>
 
 		</div>

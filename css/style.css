@@ -176,6 +176,65 @@ section{
 	margin-top:30px;
 }
 
+
+
+
+/* Inlogscherm */
+.label_inlog{
+	display: inline-block;
+	text-align: right;
+	font-size: 20px;
+	width: 150px;
+	margin-right: 20px;
+}
+.inlog_inp{
+	border: 2px solid #D2232B;
+	border-radius: 5px;
+	padding: 5px 10px;
+	font-size: 15px;
+
+}
+.text_inp{
+	border: 2px solid #D2232B;
+	border-radius: 5px;
+	padding: 5px 10px;
+	width: 178px;
+}
+.label_text{
+    transform: translateY(-75%);
+}
+
+.form_holder{
+	margin: 0 auto;
+	display: inline-block;
+}
+.form_link a{
+	display: flex;
+	padding-top: 5px;
+	justify-content: center;
+	text-decoration: none;
+	color: #804040;
+}
+.form_link a:hover{
+	color: #9C9C9C;
+}
+.inp_holder{
+	margin: 5px 0;
+}
+
+.submit_holder{
+	display: flex;
+	justify-content: center;
+}
+
+.submit_holder input{
+	margin-top: 20px;
+	padding: 10px 15px;
+	border: 2px solid #000;
+	border-radius: 8px;
+	background-color: #D2232B;
+	color: #FFF;
+}
 /* responsive */
 @media screen and (max-width:1500px){
 	nav li{
@@ -228,7 +287,22 @@ section{
 		display:none;
 	}
 }
-	
+@media screen and (max-width:600px){
+	.form_holder{
+		display: flex;
+		justify-content: center;
+
+	}
+	.inp_holder{
+		display: flex;
+		justify-content: center;
+	}
+	.inp_holder label{
+		display: block;
+		width: 100%;
+	}
+
+}
 
 
 
