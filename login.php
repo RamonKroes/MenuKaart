@@ -44,8 +44,6 @@
 
 			}else{
 				if(isset($_SESSION['active'])){
-					/*echo "U bent al ingelogd Klik hier beneden om uit te kunnen loggen <br>";
-					echo "<a href='uitloggen.php?stat=1'>Uitloggen</a>";*/
 					header("location:paneel.php");
 				}else{
 					?>
