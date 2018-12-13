@@ -12,7 +12,7 @@
 	<div class="container">
 		<?php
 		include 'db.php';
-			session_start();
+		session_start();
 		?>
 		<header>
 			<nav>
@@ -23,16 +23,18 @@
 				</ul>
 			</nav>
 		</header>
-		<main>
-		<h1>Bestaande producten wijzigen</h1>
-		<?php
-			/*$query = $conn->prepare("SELECT producten.id, producten.naam, producten.omschrijving, producten.prijs, producten.img, promoties.datum, producten.special, promoties.product_id FROM producten JOIN promoties ON producten.id = promoties.product_id");*/
-			$query = $conn->prepare("SELECT producten.id, producten.naam, producten.omschrijving, producten.prijs, producten.img, producten.special FROM producten");
-			$query->execute();
+		<?php 
+		if(isset($_SESSION['active']) && $_SESSION['active'] == 1){
+			?>
+			<main>
+				<h1>Bestaande producten wijzigen</h1>
+				<?php
+				$query = $conn->prepare("SELECT producten.id, producten.naam, producten.omschrijving, producten.prijs, producten.img, producten.special FROM producten");
+				$query->execute();
 
-			$result = $query->get_result();
-			while ($row = $result->fetch_assoc()) {
-				?>
+				$result = $query->get_result();
+				while ($row = $result->fetch_assoc()) {
+					?>
 					<form action="update.php" method="post" enctype="multipart/form-data">
 						<input type="text" name="id" hidden="" value=<?php echo htmlspecialchars($row['id']); ?>>
 						<p class="inp_holder">
@@ -57,45 +59,52 @@
 							<input type="submit" name="submit" value="Verzenden">
 						</div>
 					</form>						
-				<?php
-			}
-		?>
-		<h1>Promoties wijzigen</h1>
-		<?php
-			$sql = $conn->prepare('SELECT * FROM producten');
-			$sql->execute();
-
-			$result = $sql->get_result();
-		?>
-			<form method="post" action="promoties.php">
-				<p id="select_p">					
 					<?php
-						while($row = $result->fetch_assoc()){
-							?>
-							<label class="select_holder"><?php echo $row['naam'] ?>
-								<input type="radio" name="product">
+				}
+				?>
+				<h1>Promoties wijzigen</h1>
+				<?php
+				$sql = $conn->prepare('SELECT * FROM producten');
+				$sql->execute();
+
+				$result = $sql->get_result();
+				?>
+				<form method="post" action="promoties.php">
+					<div class="form_left">
+						<p id="select_p">					
+							<?php
+							while($row = $result->fetch_assoc()){
+								?>
+								<label class="select_holder"><?php echo $row['naam'] ?>
+								<input type="radio" name="product" value=<?php echo $row['id']; ?>>
 								<span class="checkmark"></span>
 							</label>
 							<?php
 						}
-					?>
-				</p>
-				<p>
-					<label for="datum">datum actie</label>
-					<input type="date" name="datum">					
-				</p>
-				<p>
-					<label for="product"></label>	
-					<select name="keuze">
-						<option value="0">Bijvoegen</option>
-						<option value="1">Alle promoties verwijderen</option>
-					</select>
-				</p>
-				<div class="submit_holder">
-					<input type="submit" name="submit" value="Verzenden">
+						?>
+					</p>
+				</div>
+				<div class="form_right">				
+					<label class="datum_holder" for="datum">datum actie</label>
+					<p>
+						<input type="date" name="datum">					
+					</p>
+					<p>	
+						<select name="keuze">
+							<option value="0">Bijvoegen</option>
+							<option value="1">Alle promoties verwijderen</option>
+						</select>
+					</p>
+					<div class="submit_holder">
+						<input type="submit" name="submit" value="Verzenden">
+					</div>
 				</div>
 			</form>
 		</main>
-	</div>
+	<?php }else{
+		echo "Niet ingelogd of niet de benodigde rechten<br>";
+		echo "<a href='login.php'>Terug naar de Login</a>";
+	} ?>
+</div>
 </body>
 </html>

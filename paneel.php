@@ -67,7 +67,7 @@
 		<?php 
 	}else{
 		echo "Niet ingelogd of niet de benodigde rechten<br>";
-		echo "<a href='index.php'>Terug naar de hoofdpagina</a>";
+		echo "<a href='login.php'>Terug naar het Login paneel</a>";
 	}
 	?>
 </body>

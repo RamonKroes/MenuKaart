@@ -1,3 +1,15 @@
+@font-face {
+    font-family: Montserrat;
+    src: url('../fonts/Montserrat-Regular.ttf');
+    font-weight:regular;
+}
+
+@font-face{
+	font-family: MontserratSemi;
+	src: url('../fonts/Montserrat-SemiBold.ttf');
+	font-weight:bold;
+}
+
 header{
 	position: unset;
 	padding: 0;
@@ -24,6 +36,8 @@ nav ul li a{
 	color: #000;
 	padding: 20px;
 	display: block;
+	text-transform: uppercase;
+	font-family:'MontserratSemi', sans-serif;
 }
 nav ul li a:hover{
 	background-color: #fff;
@@ -58,10 +72,27 @@ select{
 	padding: 5px 10px;
 	width: 178px;
 }
+.form_left{
+	display: inline-block;
+	float: left;
+	vertical-align: top;
+}
+.form_right{
+	display: inline-block;
+	/* float: right; */
+
+}
 #select_p{
+	display: inline-block;
 	float: left;
 	padding-top: 10px;
 }
+.datum_holder{
+	margin-right: 0;
+	text-align: center;
+	width: 100%;
+}
+/*custom radio buttons
 /* Customize the label (the select_holder) */
 .select_holder {
 	display: block;
@@ -121,10 +152,10 @@ select{
 
 /* Style the indicator (dot/circle) */
 .select_holder .checkmark:after {
-	top: 9px;
-	left: 9px;
-	width: 8px;
-	height: 8px;
+	top: 8px;
+	left: 8px;
+	width: 9px;
+	height: 9px;
 	border-radius: 50%;
 	background: white;
 }
