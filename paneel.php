@@ -13,6 +13,11 @@
 		<?php 
 			session_start();
 		?>
+		<ul>
+			<li><a href="paneel.php">paneel</a></li>
+			<li><a href="bijwerken.php">bijwerken</a></li>
+			<li><a href="uitloggen.php">uitloggen</a></li>
+		</ul>
 		<main>
 			<?php 
 			if(isset($_SESSION['active']) && $_SESSION['active'] == 1){	
