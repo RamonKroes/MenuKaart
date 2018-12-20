@@ -6,7 +6,7 @@
 	<nav class="font">
 		<ul>
 			<a href="index.php">
-				<li>HOME</li>
+				<li>SPECIALS</li>
 			</a>
 				<a href="broodjes.php">
 						<li>BROODJES</li>

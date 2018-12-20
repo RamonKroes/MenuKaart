@@ -154,30 +154,6 @@ section{
 	cursor:pointer;
 }
 
-.content{
-	display: inline-block;
-	float:left;
-	width:34.25052083333334%;
-	right:0;
-	position:fixed;
-}
-
-.modal{
-	width:80%;
-	height:calc(738px - 80px);
-	margin:0 auto;
-}
-
-.order-div{
-	width:100%;
-	height:calc(628px - 30px);
-	background-color:#FFF;
-	margin-top:30px;
-}
-
-
-
-
 /* Inlogscherm */
 .label_inlog{
 	display: inline-block;

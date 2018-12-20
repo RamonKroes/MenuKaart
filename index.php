@@ -17,8 +17,18 @@
 
 				<h2 class="sub-titel font">Specials</h2>
 
-				<div class="image">
-					<img src="img/panni.jpg" alt="panini">
+				
+					<?php
+						require('db.php');
+						$query = $conn->prepare("SELECT producten.id, producten.naam, producten.omschrijving, producten.prijs, producten.img, producten.special FROM producten");
+						$query->execute();
+
+						$result = $query->get_result();
+						while ($row = $result->fetch_assoc()) {
+					?>
+
+					<div class="image">
+					<img <?php echo 'src ="' . $row['img'] . '"'?> alt="panini">
 
 						<div class="font-awesome">
 							<i class="fas fa-plus-square"></i>
@@ -26,69 +36,20 @@
 						
 					<div class="info-contain font">
 						<div class="info">
-							<span class="type-broodje">PANINI KIP</span><br/>
-							<span class="prijs">3.95</span><br/>
+							<span class="type-broodje"><?php echo $row['naam'];?></span><br/>
+							<span class="prijs"><?php echo $row['prijs']; ?></span><br/>
 						</div>
 					</div>
 				</div>
 				
-				<div class="image">
-					<img src="img/panni.jpg" alt="panini">
-
-						<div class="font-awesome">
-							<i class="fas fa-plus-square"></i>
-						</div>
-						
-					<div class="info-contain font">
-						<div class="info">
-							<span class="type-broodje">PANINI KIP</span><br/>
-							<span class="prijs">3.95</span><br/>
-						</div>
-					</div>
-				</div>
-				
-				<h2 class="sub-titel font">Deals</h2>
-
-				<div class="image">
-					<img src="img/panni.jpg" alt="panini">
-
-						<div class="font-awesome">
-							<i class="fas fa-plus-square"></i>
-						</div>
-						
-					<div class="info-contain font">
-						<div class="info">
-							<span class="type-broodje">PANINI KIP</span><br/>
-							<span class="prijs">3.95</span><br/>
-						</div>
-					</div>
-				</div>
-				
-				<div class="image">
-					<img src="img/panni.jpg" alt="panini">
-
-						<div class="font-awesome">
-							<i class="fas fa-plus-square"></i>
-						</div>
-						
-					<div class="info-contain font">
-						<div class="info">
-							<span class="type-broodje">PANINI KIP</span><br/>
-							<span class="prijs">3.95</span><br/>
-						</div>
-					</div>
+			
+					<?php
+				}
+				?>
 				</div>
 			</section>
 
-			<div class="content">
-				<div class="modal">
-					<h2 class="sub-titel font">Bestellingen:</h2>
-
-					<div class="order-div">
-
-					</div>	
-				</div>
-			</div>
+			
 		</main>
 
 	</div>
